@@ -6,6 +6,8 @@ class tictac
 
 	private String stat;
 
+	public int turn = 1;
+
 	public tictac(){
 		beginGame(3,3);
 	}
@@ -57,9 +59,21 @@ class tictac
 	}
 
 	public void mark(int r, int c){
-		if (!stat.equals("play")){
+		if (!stat.equals("play"))
 			return;
+		if (validIndex(r, c) == false)
+			return;
+		if (board[r][c] != ' ')
+			return;
+		if (turn % 2 = 1){
+			board[r][c] = 'O';
 		}
+		else
+			board[r][c] = 'X';
+		turn++;
+	}
+
+	public boolean gameWon(){
 		
 	}
 }
